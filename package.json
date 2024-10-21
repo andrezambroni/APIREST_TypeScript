@@ -1,0 +1,13 @@
+{
+  "name": "api_rest",
+  "version": "1.0.0",
+  "description": "Criando API REST com node.js",
+  "main": "src/server.ts",
+  "scripts": {},
+  "author": "André Zambroni",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "typescript": "^5.5.4"
+  }
+}
