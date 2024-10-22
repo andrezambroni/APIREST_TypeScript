@@ -1,8 +1,7 @@
-// passa 2 number e o retorno tambem é number
-function sum(a: number, b: number): number {
-  return a + b
-}
+import express from "express"
 
-const result: number = sum(5, 3)
+const PORT = 3333
 
-console.log(result)
+const app = express()
+
+app.listen(PORT, () => console.log(`listening on port ${PORT}`))
