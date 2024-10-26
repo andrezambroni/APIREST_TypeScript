@@ -1,6 +1,8 @@
 import { Request, Response } from "express"
 
-import { AppError } from "../utils/AppError"
+import { AppError } from "../utils/app-error"
+
+import { z } from "zod"
 
 class ProductsController {
   index(request: Request, response: Response) {
@@ -10,23 +12,28 @@ class ProductsController {
   }
 
   create(request: Request, response: Response) {
-    const { name, price } = request.body
+    const bodySchema = z.object({
+      name: z.string(),
+      price: z.number(),
+    })
 
-    if (!name || !price) {
-      throw new AppError("Nome do produto é obrigatório")
-    }
+    const { name, price } = bodySchema.parse(request.body)
 
-    if (name.trim().length < 6) {
-      throw new AppError("Nome do produto deve ter no mínimo 6 caracteres")
-    }
+    // if (!name || !price) {
+    //   throw new AppError("Nome do produto é obrigatório")
+    // }
 
-    if (!price) {
-      throw new AppError("Preço do produto é obrigatório")
-    }
+    // if (name.trim().length < 6) {
+    //   throw new AppError("Nome do produto deve ter no mínimo 6 caracteres")
+    // }
 
-    if (price < 0) {
-      throw new AppError("Preço do produto não pode ser negativo")
-    }
+    // if (!price) {
+    //   throw new AppError("Preço do produto é obrigatório")
+    // }
+
+    // if (price < 0) {
+    //   throw new AppError("Preço do produto não pode ser negativo")
+    // }
 
     //throw new AppError("Erro ao tentar criar um produto")
 

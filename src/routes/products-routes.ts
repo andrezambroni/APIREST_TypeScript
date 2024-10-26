@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { myMiddleware } from "../middlewares/my-middleware"
-import { ProductsController } from "../controller/ProductsController"
+import { ProductsController } from "../controller/products-Controller"
 
 const productsRoutes = Router()
 
